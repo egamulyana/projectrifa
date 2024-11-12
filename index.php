@@ -2,9 +2,31 @@
 
 <?php
 
-    $koneksi = new mysqli("localhost","root","","db_perpustakaan")
+    $koneksi = new mysqli("localhost","root","","db_perpustakaan");
 
+// Cek apakah parameter 'page' dan 'id' ada
+if (isset($_GET['page']) && $_GET['page'] == 'hapus_buku' && isset($_GET['id'])) {
+    // Ambil id_buku dari URL
+    $id_buku = $_GET['id'];
 
+    // Query untuk menghapus buku berdasarkan id_buku
+    $sql = "DELETE FROM tb_buku WHERE id = ?";
+
+    // Persiapkan statement
+    if ($stmt = $koneksi->prepare($sql)) {
+        // Ikat parameter dan eksekusi
+        $stmt->bind_param('i', $id_buku); // 'i' untuk integer
+        if ($stmt->execute()) {
+            // Redirect ke halaman daftar buku setelah penghapusan berhasil
+            header("Location: index.php?page=buku"); // Ganti dengan halaman yang sesuai
+            exit();
+        } else {
+            echo "Error: " . $stmt->error;
+        }
+    } else {
+        echo "Error: " . $koneksi->error;
+    }
+}
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">

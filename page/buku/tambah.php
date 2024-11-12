@@ -5,7 +5,7 @@
 <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form>
+                                    <form action="" method="POST">
                                         <div class="form-group">
                                             <label>Judul</label>
                                             <input class="form-control" name="judul" />
@@ -99,6 +99,7 @@
                     <script type="text/javascript">
                         
                         alert ("Data Berhasil Disimpan");
+                        window.location.href = "index.php?page=buku";
 
                     </script>
                 <?php

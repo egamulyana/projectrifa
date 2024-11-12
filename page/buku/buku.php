@@ -43,7 +43,7 @@
                                     		<td><?php echo $data['jumlah_buku'];?></td>
                                     		<td>
                                     			<a href="" class="btn btn-info" >Ubah</a>
-                                    			<a href="" class="btn btn-danger" >Hapus</a>
+                                    			<a href="index.php?page=hapus_buku&id=<?php echo $data['id']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus buku ini?');">Hapus</a>
                                     	</tr>
 
 
