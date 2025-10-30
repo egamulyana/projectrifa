@@ -1,2 +1,2 @@
 # projectrifa
-Kp na Rifa
+proyek untuk memenuhi tugas akhir mahasiswi
